@@ -2,15 +2,18 @@ import streamlit as st
 import joblib
 import pandas as pd
 import matplotlib.pyplot as plt
+from pathlib import Path
 st.title("❤️ AI-Powered Arrhythmia Detection")
 
 st.write("Welcome to the Arrhythmia Detection System!")
 
 st.write("This application uses a trained Random Forest model to classify ECG heartbeats.")
 
-model = joblib.load("../arrhythmia_model.pkl")
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-df = pd.read_csv("../demo_data.csv", header=None)
+model = joblib.load(BASE_DIR / "arrhythmia_model.pkl")
+
+df = pd.read_csv(BASE_DIR / "demo_data.csv", header=None)
 
 sample_number = st.selectbox(
     "Select ECG Sample",
