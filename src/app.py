@@ -10,7 +10,7 @@ st.write("This application uses a trained Random Forest model to classify ECG he
 
 model = joblib.load("../arrhythmia_model.pkl")
 
-df = pd.read_csv("../data/mitbih_test.csv", header=None)
+df = pd.read_csv("../demo_data.csv", header=None)
 
 sample_number = st.selectbox(
     "Select ECG Sample",
